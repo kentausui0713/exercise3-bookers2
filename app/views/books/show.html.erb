@@ -45,19 +45,17 @@
       <div>
         <% @book.book_comments.each do |b| %>
           <div class= "row">
-            <div class="w-75">
-              <%= link_to user_path(b.user) do %>
+            <%= link_to user_path(b.user) do %>
               <%= attachment_image_tag b.user, :profile_image, :fill, 100, 100, fallback: "no-image-icon.jpg" %>
               <div>
                 <%= b.user.name %>
               </div>
-            </div>
             <% end %>
             <div class="d-flex align-items-end">
               <span class="mx-3"><%= b.comment %></span>
               <% if b.user_id == current_user.id %>
                 <%= link_to book_book_comment_path(b.book.id,b.id), method: :delete do %>
-                  <buttun class="btn btn-danger">Delete</buttun>
+                  <buttun class="btn btn-danger p-0">Delete</buttun>
                 <% end %>
               <% end %>
             </div>
