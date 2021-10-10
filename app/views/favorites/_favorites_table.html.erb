@@ -1,11 +1,5 @@
-<td id = "favorites_buttons_<%= book.id %>">
  <% if book.favorited_by?(current_user) %>
-  <td>
-    <%= link_to book.favorites.count, book_favorites_path(book), method: :delete, class:  'fas fa-heart', style: "color: red;", remote: true %>
-  </td>
+    <%= link_to  book.favorites.count, book_favorites_path(book), method: :delete, remote: true, class: "fas fa-heart", :style =>"color:red;" %>
  <% else %>
-  <td>
-    <%= link_to book.favorites.count, book_favorites_path(book), method: :post, class: 'fas fa-heart', style: "color: blue;", remote: true %>
-  </td>
+    <%= link_to book.favorites.count, book_favorites_path(book), method: :post, remote: true, class: "fas fa-heart", :style => "color:blue;" %>
  <% end %>
-</td>
